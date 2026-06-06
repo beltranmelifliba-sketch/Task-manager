@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Task Manager{% endblock %}
+
+{% block body %}
+<div class="max-w-5xl mx-auto">
+
+    <h1 class="text-3xl font-bold mb-6">Task Manager</h1>
+
+    <a href="{{ path('task_new') }}"
+       class="bg-blue-500 text-white px-4 py-2 rounded">
+        Add Task
+    </a>
+
+    <table class="w-full mt-6 border">
+        <thead>
+            <tr class="bg-gray-200">
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for task in tasks %}
+            <tr class="border-t">
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+
+                <td>
+                    {% if task.status == 'pending' %}
+                        <span class="bg-gray-400 text-white px-2">Pending</span>
+                    {% elseif task.status == 'in_progress' %}
+                        <span class="bg-yellow-400 px-2">In Progress</span>
+                    {% else %}
+                        <span class="bg-green-500 text-white px-2">Done</span>
+                    {% endif %}
+                </td>
+
+                <td>
+                    <a href="{{ path('task_edit', {id: task.id}) }}" class="text-blue-600">Edit</a>
+                    <a href="{{ path('task_delete', {id: task.id}) }}" class="text-red-600"
+                       onclick="return confirm('Delete task?')">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4" class="text-center">No tasks found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}
