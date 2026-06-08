@@ -1,6 +1,7 @@
 # ===== Symfony Task Manager Web App =====
 
 1. Clone the Repository
+
 git clone https://github.com/beltranmelifliba-sketch/Task-manager.git
 cd task-manager
 
@@ -36,7 +37,7 @@ php bin/console doctrine:migrations:migrate
 
 Type:
 
-yes
+yes/y
 
 kapag may confirmation prompt.
 
