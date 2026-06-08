@@ -38,9 +38,13 @@
                     {% endif %}
                 </td>
 
-                <td>
-                    <a href="{{ path('task_edit', {id: task.id}) }}" class="text-blue-600">Edit</a>
-                    <a href="{{ path('task_delete', {id: task.id}) }}" class="text-red-600"
+                <td class="space-x-2">
+                    <a href="{{ path('task_edit', {id: task.id}) }}" class="text-blue-600">
+                        Edit
+                    </a>
+
+                    <a href="{{ path('task_delete', {id: task.id}) }}"
+                       class="text-red-600"
                        onclick="return confirm('Delete task?')">
                         Delete
                     </a>
@@ -48,7 +52,9 @@
             </tr>
         {% else %}
             <tr>
-                <td colspan="4" class="text-center">No tasks found</td>
+                <td colspan="4" class="text-center py-4">
+                    No tasks found
+                </td>
             </tr>
         {% endfor %}
         </tbody>
