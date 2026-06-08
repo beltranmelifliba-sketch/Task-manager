@@ -1,107 +1,78 @@
 # ===== Symfony Task Manager Web App =====
 
-
-### 1. Clone Repository
-```bash
+1. Clone the Repository
 git clone https://github.com/your-username/task-manager.git
 cd task-manager
-symfony server
 
-===== RUN WITH SYMFONY CLI =====
+2. Install PHP Dependencies
 
-1. Verify Symfony CLI installation
+Sa loob ng project folder, i-run:
 
-   ```
-    symfony -v
-   ```
+composer install
+3. Configure Environment
 
-2. Start the development server
+Kung may .env.example file:
 
-   ```
-    symfony server:start
-   ```
+copy .env.example .env
 
-3. Open the application in your browser
+I-update ang database credentials sa .env file kung kinakailangan.
 
-   ```
-    http://127.0.0.1:8000/task
-   ```
+Example:
 
-4. Stop the server
+DATABASE_URL="mysql://root:@127.0.0.1:3306/task_manager"
 
-   ```
-    symfony server:stop
-   ```
+4. Create the Database
 
+Gumawa ng database sa MySQL:
 
+CREATE DATABASE task_manager;
 
+O gamit ang Symfony:
 
-
-# If App dont have symfony (tester if app is running)
-
-1. Start PHP's built-in server
-
-   ```
-    php -S 127.0.0.1:8000 -t public
-   ```
-
-2. Open the application in your browser
-
-   ```
-    http://127.0.0.1:8000
-   ```
-
-3. Stop the server
-
-   ```
-    Press CTRL + C
-   ```
-
-===== DATABASE SETUP =====
-
-1. Create the database
-
-   ```
-    php bin/console doctrine:database:create
-   ```
-
-2. Run database migrations
-
-   ```
-    php bin/console doctrine:migrations:migrate
-   ```
-
-===== USEFUL COMMANDS =====
-
-Create Migration:
-
-```
-php bin/console make:migration
-```
-
-Run Migration:
-
-```
+php bin/console doctrine:database:create
+5. Run Database Migrations
 php bin/console doctrine:migrations:migrate
-```
 
-Clear Cache:
+Type:
 
-```
+yes
+
+kapag may confirmation prompt.
+
+Run the Application
+Option A: Using Symfony CLI
+Verify Symfony CLI Installation
+symfony -v
+
+Dapat may lumabas na Symfony CLI version.
+
+Start the Development Server
+symfony server:start
+
+Open in Browser
+http://127.0.0.1:8000/task
+
+Stop the Server
+symfony server:stop
+
+Option B: Using PHP Built-in Server
+
+Kung walang Symfony CLI:
+
+php -S 127.0.0.1:8000 -t public
+
+Pagkatapos buksan:
+
+http://127.0.0.1:8000/task
+Troubleshooting
+Missing Vendor Files
+
+Run:
+
+composer install
+Clear Symfony Cache
 php bin/console cache:clear
-```
+Verify Routes
+php bin/console debug:router
 
-===== RUNNING THE PROJECT =====
 
-Prerequisites:
-- PHP 8.2 or higher
-- Composer
-
-Setup:
-1. Open Command Prompt or Terminal
-2. Navigate to the project directory
-3. Install project dependencies
-
-```
-	composer install
-```
