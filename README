@@ -1,69 +1,107 @@
 # ===== Symfony Task Manager Web App =====
 
-## 📌 Objective
-Build a simple Task Manager Web Application using:
-
-- Symfony (Latest Version)
-- Doctrine ORM (Database)
-- Twig (Templating Engine)
-- TailwindCSS (Styling)
-
----
-
-## 🚀 Features
-
-### 1. Task Entity
-The application includes a `Task` entity with the following fields:
-
-- `id` (Primary Key)
-- `title` (String, Required)
-- `description` (String, Optional)
-- `status` (Enum/String: `pending`, `in_progress`, `done`)
-- `created_at` (DateTime)
-
----
-
-### 2. CRUD Functionality
-
-#### ➕ Create Task
-- Add new task form
-- Validation for required fields (title, status)
-
-#### 📄 Read Task
-- Display all tasks in a table
-- Columns:
-  - Title
-  - Description
-  - Status
-  - Created Date
-  - Actions (Edit / Delete)
-
-#### ✏️ Update Task
-- Edit form with pre-filled task data
-
-#### ❌ Delete Task
-- Delete button with confirmation prompt
-
----
-
-### 3. UI Design (TailwindCSS)
-
-- Responsive table layout
-- Styled buttons:
-  - Add Task (Blue / Primary)
-  - Edit (Yellow)
-  - Delete (Red)
-- Form styling with spacing and borders
-- Status badges:
-  - 🟡 Pending → Gray
-  - 🟠 In Progress → Yellow
-  - 🟢 Done → Green
-
----
-
-## 🛠 Installation & Setup
 
 ### 1. Clone Repository
 ```bash
 git clone https://github.com/your-username/task-manager.git
 cd task-manager
+symfony server
+
+===== RUN WITH SYMFONY CLI =====
+
+1. Verify Symfony CLI installation
+
+   ```
+    symfony -v
+   ```
+
+2. Start the development server
+
+   ```
+    symfony server:start
+   ```
+
+3. Open the application in your browser
+
+   ```
+    http://127.0.0.1:8000/task
+   ```
+
+4. Stop the server
+
+   ```
+    symfony server:stop
+   ```
+
+
+
+
+
+# If App dont have symfony (tester if app is running)
+
+1. Start PHP's built-in server
+
+   ```
+    php -S 127.0.0.1:8000 -t public
+   ```
+
+2. Open the application in your browser
+
+   ```
+    http://127.0.0.1:8000
+   ```
+
+3. Stop the server
+
+   ```
+    Press CTRL + C
+   ```
+
+===== DATABASE SETUP =====
+
+1. Create the database
+
+   ```
+    php bin/console doctrine:database:create
+   ```
+
+2. Run database migrations
+
+   ```
+    php bin/console doctrine:migrations:migrate
+   ```
+
+===== USEFUL COMMANDS =====
+
+Create Migration:
+
+```
+php bin/console make:migration
+```
+
+Run Migration:
+
+```
+php bin/console doctrine:migrations:migrate
+```
+
+Clear Cache:
+
+```
+php bin/console cache:clear
+```
+
+===== RUNNING THE PROJECT =====
+
+Prerequisites:
+- PHP 8.2 or higher
+- Composer
+
+Setup:
+1. Open Command Prompt or Terminal
+2. Navigate to the project directory
+3. Install project dependencies
+
+```
+	composer install
+```
